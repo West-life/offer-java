@@ -7,12 +7,12 @@ public class Solution {
         }
         int maxSum=array[0],curSum=array[0];
         for(int i=1;i<array.length;i++){
+            if(curSum<0){
+                curSum=0;
+            }
             curSum +=array[i];
             if(curSum>maxSum){
                 maxSum=curSum;
-            }
-            if(curSum<0){
-                curSum=0;
             }
         }
         return maxSum;
