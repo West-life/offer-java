@@ -17,3 +17,29 @@ public class Solution {
         return Math.max(left,right)+1;
     }
 }
+
+
+//不需要重复遍历节点的解法
+public class Solution {
+    public boolean IsBalanced_Solution(TreeNode root) {
+        int[] depth={0};
+        return isBalancedCore(root,depth);
+    }
+    
+    private boolean isBalancedCore(TreeNode root,int[] depth){
+        if(root==null){
+            depth[0]=0;
+            return true;
+        }
+        int[] left=new int[1];
+        int[] right=new int[1];
+        if(isBalancedCore(root.left,left)&&isBalancedCore(root.right,right)){
+            int diff=left[0]-right[0];
+            if(diff<=1&&diff>=-1){
+                depth[0]=1+(left[0]>right[0]?left[0]:right[0]);
+                return true;
+            }
+        }
+        return false;
+    }
+}
