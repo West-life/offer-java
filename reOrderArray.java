@@ -17,3 +17,36 @@ public class Solution {
     }
 }
 //方法二：再开一个辅助数组，前后指针
+
+//方法s三：前后指针，书上的方法，时间O（n），但是不能保证元素之前的相对位置
+public class Solution {
+    public void reOrderArray(int [] array) {
+        reOrderArray(array,new JudgeOddEven());
+    }
+    public void reOrderArray(int [] array,Judge judge) {
+        if(array==null||array.length==0){
+            return;
+        }
+        int start=0,end=array.length-1;
+        while(start<end){
+            while(start<end&&!judge.judge(array[start]))
+                start++;
+            while(start<end&&judge.judge(array[end]))
+                end--;
+            if(start<end){
+                int tmp=array[start];
+                array[start]=array[end];
+                array[end]=tmp;
+            }    
+        }
+    }
+}
+
+interface Judge{
+    public boolean judge(int n);
+}
+class JudgeOddEven implements Judge{
+    public boolean judge(int n){
+        return (n&1)==0;
+    }
+}
