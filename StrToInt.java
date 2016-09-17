@@ -26,3 +26,14 @@ public class Solution {
         return charArray[0]=='-'?sum*-1:sum;
     }
 }
+
+//方法二：
+public class Solution {
+    public int StrToInt(String str) {
+        try{
+            return new Integer(str);
+        }catch(Exception e){
+            return 0;
+        }
+    }
+}
