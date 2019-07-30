@@ -14,7 +14,7 @@ public class MinNumberInRotateArray {
         int indexMid = (index1 + index2)/2;
         while (index2 - index1 > 1){
             if (array[index1] == array[indexMid] && array[indexMid] == array[index2]){
-                minInOrder(array);
+                return minInOrder(array);
             }else if (array[index1] > array[indexMid]){
                 index2 = indexMid;
                 indexMid = (index1 + index2)/2;
