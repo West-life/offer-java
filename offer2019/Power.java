@@ -37,7 +37,7 @@ public class Power {
         }
     }
 
-    public boolean equal(double a, double b) {
+        public boolean equal(double a, double b) {
         if ((a - b < 0.00000001) && (a - b) > -0.00000001) {
             return true;
         }
