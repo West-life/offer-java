@@ -14,7 +14,7 @@ public class ListNode {
 }*/
 public class FindKthToTail {
     public ListNode FindKthToTail(ListNode head, int k) {
-        if (head == null || k == 0) {
+        if (head == null || k <= 0) {
             return null;
         }
         ListNode pos1 = head, pos2 = head;
